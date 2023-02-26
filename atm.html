@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="atm.css">
+    <title>My ATM Machine</title>
+</head>
+<body>
+    <section id="container">
+        <header>
+            <h1>MY ATM MACHINE</h1>
+        </header>
+        <div id="wel">
+          <marquee behavior="" direction="left" style="margin-top: 20px;color: rgb(110, 200, 79);"><h5>WELCOME TO VICKY BANK! WE ARE ALWAYS AT YOUR SERVICE.....</h5></marquee>
+        <div id="sub-container">
+        <div>
+            <div>
+                <b>Welcome</b><br>
+                <strong><i>Adebanjo Favour</i></strong>
+            </div>
+            <div>
+                <b>Account No</b><br>
+                <strong><i>0123456789</i></strong>
+            </div>
+            <div>
+                <b>Balance</b><br>
+                <strong><i id="bal">0</i></strong>
+            </div>
+            <div>
+                <b>PIN</b><br>
+                <strong><i>****</i></strong>
+            </div>
+        </div>
+                <div id="btn">
+                    <button onclick="dep()">DEPOSIT</button>
+                    <button onclick="withd()">WITHDRAW</button>
+                    <a href=""><button>TRANSFER</button></a>
+                    <button>BUY AIRTIME</button>
+                    <button>ACCOUNT SETTINGS</button>
+                    <button>OTHER</button>
+                </div>
+            </div>
+        </div>
+        <div id="input">
+            <h4 id="disp" class="display"></h4>
+            <input type="text" placeholder="₦" id="amount">
+        </div>
+    </section>
+    <script>
+        var balance = 0
+        bal.style.color = "yellowgreen"
+
+         function dep(){
+            var customer = Number(amount.value) 
+            if (customer < 1){
+                alert("Invalid Amount")
+            } else if(customer == ""){
+                alert("Enter an amount")
+            } else if (customer > 0){
+                bal.innerText = balance + customer
+                balance =  balance + customer
+                alert("Deposit Successfully")
+            } else{
+               alert("Error") 
+            }
+         }
+         function withd(){
+            var customer = Number(amount.value) 
+           if (bal.innerText < customer ){
+               alert("Insufficient Fund")
+           }else if(customer == ""){
+                alert("Enter an amount")
+            }else if(customer < balance){
+            bal.innerText = balance - customer
+            balance =  balance - customer
+            alert("Withdraw Successfully")
+           }else{
+            alert("Error") 
+            }
+         }
+    </script>
+</body>
+</html>

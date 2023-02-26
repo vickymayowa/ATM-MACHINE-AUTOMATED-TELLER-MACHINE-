@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp account ATM MACHINE</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+        <div class="container-fluid w-50 h-50 rounded mt-5">
+            <div class="row">
+            <div class="col-9 mx-auto shadow-lg w-50" style="height: 350px;">
+            <h2 align="center" style="font-style: italic;">Sign In</h2>
+            <h5 class="mt-5">Account Number</h5>
+            <input type="text" placeholder="Enter your Email" id="em" class="form-control my-3">
+            <h5>Password</h5>
+            <input type="password" placeholder="Enter your Password" id="pass" class="form-control my-3">
+            <button class="btn bg-primary my-3 w-50 mx-auto d-grid"  style="color: white;" onclick="signin()">Sign In</button>
+            </div>
+        </div>
+    </div> 
+    <script>
+         var allStudents = JSON.parse(localStorage.getItem('localStudents'))
+        console.log(allStudents)
+        function signin(){
+            var userEmail = em.value
+            var userPassword = pass.value
+            var found = true
+            if(found==true){
+                alert("correct")
+                window.location.href = "index.html"
+            } else if(found==false){
+                alert("INFORMATION NOT RECOGNISED")
+                em.value=""
+                pass.value=""
+            }    
+        }
+    </script>
+</body>
+</html>

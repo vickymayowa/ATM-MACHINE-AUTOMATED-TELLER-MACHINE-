@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP Account</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container-fluid w-50 h-50 rounded mt-5">
+        <div class="row mt-5">
+        <div class="col-9 mx-auto shadow-lg w-50 mt-2" style="height: 550px;">
+        <h3 class="mx-auto" align="center">SIGN PAGE</h3>
+        <h5>First Name</h5>
+        <input type="text" placeholder="Enter First Name" id="fn" class="form-control my-3">
+        <h5>last Name</h5>
+        <input type="text" placeholder="Enter last Name" id="ln" class="form-control my-4">
+        <h5>Account Number</h5>
+        <input type="text" placeholder="Enter  Email" id="em" class="form-control my-3 w-50">
+        <h5>Password</h5>
+        <input type="password" placeholder="Enter Password" id="pass" class="form-control my-3">
+        <button class="btn bg-primary my-3 w-50 mx-auto d-grid"  style="color: white;" onclick="signUp()">Sign In</button>
+        </div>
+    </div>
+</div>
+    <script>
+        var allStudents = []
+        if(localStorage.localStudents){
+            var oldData = JSON.parse(localStorage.getItem("localStudents"))
+             allStudents = oldData 
+        }
+        console.log(allStudents)
+        function signUp(){
+            var student = {
+                firstname:fn.value,
+                lastname:ln.value,
+                email:em.value,
+                password:pass.value,
+            }
+            allStudents.push(student)
+            localStorage.setItem('localStudents',JSON.stringify(allStudents));
+            console.log(student)
+                if(em.value==""|| pass.value=="" ||  ln.value==""||fn.value==""){
+                    alert("input information")  
+                } else{
+                    alert("REGISTRATION SUCCESSFULLY")  
+                    window.location.href = "signin.html"
+                    em.value=""
+                     pass.value=""
+                     ln.value=""
+                     fn.value="" 
+                }
+        }
+
+    </script>
+</body>
+</html>

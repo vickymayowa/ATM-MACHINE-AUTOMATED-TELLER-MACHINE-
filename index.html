@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM MACHINE</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <style>
+        .child3{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        left: 190px;
+        width: 400px;
+        top: -270px;
+        position: relative;
+        height: 100px;
+}
+    </style>
+    <div class="container w-50  rounded" style="background-color: #0B3A97;">
+        
+    <div class="child1 text text-white ms-5 mt-5" style="position: relative; top:50px;">
+        <h1 class="mx-auto" align="center">VICKY ATM MACHINE</h1>
+        <p id="balance"></p>
+        <div class="child2 mt-4">
+        <h2 class="text1 mt-5"></p>
+        <h6 class="text2" id="display">ffff</h3><br>
+
+        <h2 class="text1">PIN</p>
+        <h3 class="text2">*******</h3> <br>
+
+        <h2 class="text1">Balance</p>
+        <h3 class="text2" id="text3">₦0</h3> <br>
+        <input type="button" value="Click to add your Name" onclick="adname()">
+    </div>
+    <div class="child3">
+        <button onclick="withdraw()" class="btn btn-primary">Withdraw</button>
+        <button onclick="deposit()" class="btn btn-primary">Deposit</button>
+        <button onclick="account()" class="btn btn-primary">Account Number</button>
+        <button onclick="airtime()" class="btn btn-primary">Buy Airtime</button>
+        <button onclick="transfer()" class="btn btn-primary">Transfer</button>
+        <button onclick="logout()" class="btn btn-primary">Log out</button>
+        <input type="text" placeholder="₦" id="bal" class="my-3 form-control">
+    </div>
+    <script>   
+        function logout(){
+            alert("Are you sure you want to log out")
+            window.location.href = "signin.html"
+        }
+        function adname(){
+            alert("am working")
+            prompt("WHAT IS YOUR NAME PLEASE")
+            if(prompt.userResponse.value="string"){
+                display.innerHTML +=`
+            <h2>Dear, ${balance.value}</h2>`
+            }
+    } 
+
+
+
+        function account(){
+            var randomNumber = Math.round(Math.random()*20000000000)
+            if(randomNumber){
+                alert("YOUR ACCOUNT MUNBER IS " + randomNumber)
+            }
+        }
+        var balance = 0
+        bal.style.color = "yellowgreen"
+
+         function dep(){
+            var customer = Number(amount.value) 
+            if (customer < 1){
+                alert("Invalid Amount")
+            } else if(customer == ""){
+                alert("Enter an amount")
+            } else if (customer > 0){
+                bal.innerText = balance + customer
+                balance =  balance + customer
+                alert("Deposit Successfully")
+            } else{
+               alert("Error") 
+            }
+         }
+         function withd(){
+            var customer = Number(amount.value) 
+           if (bal.innerText < customer ){
+               alert("Insufficient Fund")
+           }else if(customer == ""){
+                alert("Enter an amount")
+            }else if(customer < balance){
+            bal.innerText = balance - customer
+            balance =  balance - customer
+            alert("Withdraw Successfully")
+           }else{
+            alert("Error") 
+            }
+         }
+    </script>
+</body>
+</html>
